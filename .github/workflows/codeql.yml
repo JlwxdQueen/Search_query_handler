@@ -23,7 +23,7 @@ jobs:
       matrix:
         include:
           - language: cpp
-            build-mode: cmake
+            build-mode: manual
 
     steps:
       - name: Checkout repository
