@@ -50,10 +50,8 @@ jobs:
         with:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
-          db-location: /home/runner/work/_temp/codeql_databases
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
           category: '/language:${{matrix.language}}'
-          db-location: /home/runner/work/_temp/codeql_databases
