@@ -1,13 +1,13 @@
-#include "./tools/setup.h"
 #include "include/Tokenizer.h"
 #include "./include/relevanceProcessor.h"
 
+#include "./tools/setup.h"
 
 #include <iostream>
 
 int main() {
 
-    setup();
+    setupUTF();
 
     // Пример строки с лишними пробелами и стоп-словами
     std::string input = "  Это   пример   строки,  которая  содержит  лишние  пробелы и стоп-слова!  ";
@@ -22,7 +22,7 @@ int main() {
     // Токенизируем строку
     std::vector<std::string> tokens = Tokenizer::tokenize(input);
     std::cout << "Токены: ";
-    for (const auto& token : tokens) {
+    for (const auto &token: tokens) {
         std::cout << "\"" << token << "\" ";
     }
     std::cout << std::endl;
@@ -31,7 +31,7 @@ int main() {
     Tokenizer tokenizer;
     std::vector<std::string> filteredTokens = tokenizer.removeStopWords(tokens);
     std::cout << "Токены после удаления стоп-слов: ";
-    for (const auto& token : filteredTokens) {
+    for (const auto &token: filteredTokens) {
         std::cout << "\"" << token << "\" ";
     }
     std::cout << std::endl;
@@ -48,18 +48,18 @@ int main() {
 
     // Список документов для сравнения
     std::vector<std::string> documents = {
-        "machine learning is a subset of artificial intelligence",
-        "artificial intelligence and machine learning are closely related",
-        "deep learning is a subset of machine learning",
-        "machine learning algorithms are used in various applications",
-        "artificial intelligence is the future of technology"
+            "machine learning is a subset of artificial intelligence",
+            "artificial intelligence and machine learning are closely related",
+            "deep learning is a subset of machine learning",
+            "machine learning algorithms are used in various applications",
+            "artificial intelligence is the future of technology"
     };
 
     // Вычисляем релевантность для каждого документа
     processor.calculate_relevance(documents);
 
     // Выводим результаты релевантности
-    for (const auto& doc : documents) {
+    for (const auto &doc: documents) {
         const float relevance = processor.get_relevance(doc);
         std::cout << "Document: \"" << doc << "\" has relevance: " << relevance << std::endl;
     }

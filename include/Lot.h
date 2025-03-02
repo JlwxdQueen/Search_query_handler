@@ -4,14 +4,15 @@
 #include <string>
 
 class Lot {
-std::string title;
-std::string desc;
-bool isNewbie;
+    std::string title;
+    std::string desc;
+    bool isNewbie;
+
 public:
-    Lot(std::string  title, std::string  description, bool isNewbie);
+    Lot(std::string title, std::string description, bool isNewbie);
     ~Lot();
     void set_title(const std::string &title);
-    void set_desc(const std::string& desc);
+    void set_desc(const std::string &desc);
     void set_isNewbie(bool isNewbie);
     std::string get_title();
     std::string get_desc();

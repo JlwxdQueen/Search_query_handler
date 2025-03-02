@@ -1,11 +1,10 @@
 #ifndef SETUP_H
 #define SETUP_H
 
-#include <Windows.h>
+#include <clocale>
 
-inline void setup() {
-    SetConsoleCP(CP_UTF8);
-    SetConsoleOutputCP(CP_UTF8);
+inline void setupUTF() {
+    setlocale(LC_ALL, "Russian");
 }
 
 #endif

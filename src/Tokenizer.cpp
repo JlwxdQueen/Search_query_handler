@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <unordered_set>
 
-void Tokenizer::removeSpecialCharacters(std::string& str) {
+void Tokenizer::removeSpecialCharacters(std::string &str) {
     const auto newEnd = std::ranges::remove_if(str, [](char c) {
         return c == '!' || c == '?' || c == '.' || c == ',';
     }).begin();
@@ -11,7 +11,7 @@ void Tokenizer::removeSpecialCharacters(std::string& str) {
     str.erase(newEnd, str.end());
 }
 
-void Tokenizer::removeExtraSpaces(std::string& str) {
+void Tokenizer::removeExtraSpaces(std::string &str) {
 
     str.erase(str.begin(), std::ranges::find_if(str, [](const unsigned char c) {
         return !std::isspace(c);
@@ -24,7 +24,7 @@ void Tokenizer::removeExtraSpaces(std::string& str) {
     std::string result;
     bool wasSpace = false;
 
-    for (const char c : str) {
+    for (const char c: str) {
         if (std::isspace(c)) {
             if (!wasSpace) {
                 result += ' ';
@@ -39,11 +39,11 @@ void Tokenizer::removeExtraSpaces(std::string& str) {
     str = result;
 }
 
-std::vector<std::string> Tokenizer::tokenize(const std::string& str) {
+std::vector<std::string> Tokenizer::tokenize(const std::string &str) {
     std::vector<std::string> words;
     std::string currentWord;
 
-    for (const char c : str) {
+    for (const char c: str) {
         if (c == ' ') {
             words.push_back(currentWord);
             currentWord.clear();
@@ -54,11 +54,11 @@ std::vector<std::string> Tokenizer::tokenize(const std::string& str) {
     return words;
 }
 
-std::vector<std::string> Tokenizer::removeStopWords(const std::vector<std::string>& words) {
+std::vector<std::string> Tokenizer::removeStopWords(const std::vector<std::string> &words) {
     const std::unordered_set stopWordsSet(stopWords.begin(), stopWords.end());
     std::vector<std::string> result;
 
-    for (const auto& word : words) {
+    for (const auto &word: words) {
         if (!stopWordsSet.contains(word)) {
             result.push_back(word);
         }
@@ -67,9 +67,9 @@ std::vector<std::string> Tokenizer::removeStopWords(const std::vector<std::strin
     return result;
 }
 
-std::string Tokenizer::tokenizedToString(const std::vector<std::string>& words) {
+std::string Tokenizer::tokenizedToString(const std::vector<std::string> &words) {
     std::string result;
-    for (const auto& word : words) {
+    for (const auto &word: words) {
         result += word;
         result += " ";
     }
