@@ -1,0 +1,11 @@
+# Sources
+*.cpp   text diff=cpp
+*.h     text diff=cpp
+
+# Git specific
+*.gitattributes text
+.gitignore      text
+
+# Files to be exported as ignored
+.gitattributes  export-ignore
+.gitignore      export-ignore
