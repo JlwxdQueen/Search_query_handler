@@ -1,0 +1,3 @@
+D:/Algoth/Search_query_handler/cmake-build-debug/CMakeFiles/Search_query_handler.dir
+D:/Algoth/Search_query_handler/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Algoth/Search_query_handler/cmake-build-debug/CMakeFiles/rebuild_cache.dir
